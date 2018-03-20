@@ -56,7 +56,7 @@
     transform: translateY(-20px);
 
     animation: enter .3s ease forwards;
-    animation-delay: 2s;
+    animation-delay: 2s !important;
   }
 
   .alert-content {

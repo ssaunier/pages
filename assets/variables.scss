@@ -1,0 +1,40 @@
+$spacing: 8px;
+
+$navbar-height: 50px;
+
+$radius: 3px;
+$radius-2: 10px;
+$radius-3: 20px;
+
+$brand_color: #5FC9F8;
+$text_color: darken($brand_color, 55%);
+$text_color_light_blue: rgba(darken($brand_color, 45%), .8);
+
+$pink: #FC3258;
+
+$text_color_light: rgba($text_color, .5);
+$text_color_light_hover: rgba($text_color, .7);
+
+$text_color_extra_light: rgba($text_color, .3);
+$text_color_ultra_light: rgba($text_color, .05);
+
+$black: #000D19;
+$yellow: #FFCC01;
+
+$container-padding: $spacing*2;
+$container-size: ($spacing * 110) + $container-padding;
+
+$mobile-breakpoint: 650px;
+
+
+$shadow-1: 0 1px 2px 0 rgba(0,0,0,0.20), 0 1px 3px 0 rgba(0,0,0,0.10);
+$shadow-2: 0 3px 6px 0 rgba(0,0,0,0.23), 0 3px 6px 0 rgba(0,0,0,0.16);
+
+$shadow-0: 0 0 0 1px rgba($text_color, .15), 0 1px 2px rgba($text_color, .12);
+$shadow-0-transition: box-shadow .2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$shadow-0-hover: 0 0 0 1px rgba($text_color, .25), 0 1px 2px rgba($text_color, .15);
+
+$popover-shadow: 0px 0px 0px .5px rgb(215, 221, 224),
+  0px 0px 0px 1px  rgba($text_color, .1),
+  0 14px 28px rgba($text_color, 0.25),
+  0 10px 10px rgba($text_color, 0.22);

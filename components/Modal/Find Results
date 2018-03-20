@@ -1,0 +1,944 @@
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/CategorySwitcher/index.vue:
+   35      mounted () {
+   36        this.popupItem = this.$el
+   37:       this.$axios.$get(`${apiUrl}/categories`)
+   38          .then((res) => {
+   39            this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/index.vue:
+   22    components: { Detail, Spinner, Cross },
+   23    mounted () {
+   24:     this.$axios.$get(`${apiUrl}/pages/${this.$store.state.modal}`)
+   25        .then((res) => {
+   26          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Page/Cropper.vue:
+   36            }
+   37          }
+   38:         this.$axios.$put(`${apiUrl}/screenshots/${this.screenshot_id}/crop`, data)
+   39            .then((res) => {
+   40              this.done = true
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  166        }
+  167        this.morePopover = false
+  168:       return this.$axios.$patch(`${apiUrl}/screenshots/${this.screenshot_id}`, data, config).then((res) => {
+  169          this.$store.state.uploadingScreenshot = false
+  170          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   79        }
+   80
+   81:       return this.$axios.$post(`${apiUrl}/pages/${this.pageSlug}/screenshot`, data, config)
+   82          .then((res) => {
+   83            console.log(res)
+
+/Users/tchret/code/pages/pages.xyz/pages/_page.vue:
+   17
+   18    mounted () {
+   19:     this.$axios.$get(`${apiUrl}/pages/${this.$nuxt.$route.params.page}`)
+   20        .then((res) => {
+   21          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+12 matches across 12 files
+
+
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/index.vue:
+   22    components: { Detail, Spinner, Cross },
+   23    mounted () {
+   24:     this.$axios.$get(`${apiUrl}/pages/${this.$store.state.modal}`)
+   25        .then((res) => {
+   26          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Page/Cropper.vue:
+   36            }
+   37          }
+   38:         this.$axios.$put(`${apiUrl}/screenshots/${this.screenshot_id}/crop`, data)
+   39            .then((res) => {
+   40              this.done = true
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  166        }
+  167        this.morePopover = false
+  168:       return this.$axios.$patch(`${apiUrl}/screenshots/${this.screenshot_id}`, data, config).then((res) => {
+  169          this.$store.state.uploadingScreenshot = false
+  170          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   79        }
+   80
+   81:       return this.$axios.$post(`${apiUrl}/pages/${this.pageSlug}/screenshot`, data, config)
+   82          .then((res) => {
+   83            console.log(res)
+
+/Users/tchret/code/pages/pages.xyz/pages/_page.vue:
+   17
+   18    mounted () {
+   19:     this.$axios.$get(`${apiUrl}/pages/${this.$nuxt.$route.params.page}`)
+   20        .then((res) => {
+   21          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+11 matches across 11 files
+
+
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Page/Cropper.vue:
+   36            }
+   37          }
+   38:         this.$axios.$put(`${apiUrl}/screenshots/${this.screenshot_id}/crop`, data)
+   39            .then((res) => {
+   40              this.done = true
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  166        }
+  167        this.morePopover = false
+  168:       return this.$axios.$patch(`${apiUrl}/screenshots/${this.screenshot_id}`, data, config).then((res) => {
+  169          this.$store.state.uploadingScreenshot = false
+  170          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   79        }
+   80
+   81:       return this.$axios.$post(`${apiUrl}/pages/${this.pageSlug}/screenshot`, data, config)
+   82          .then((res) => {
+   83            console.log(res)
+
+/Users/tchret/code/pages/pages.xyz/pages/_page.vue:
+   17
+   18    mounted () {
+   19:     this.$axios.$get(`${apiUrl}/pages/${this.$nuxt.$route.params.page}`)
+   20        .then((res) => {
+   21          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+10 matches across 10 files
+
+
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Page/Cropper.vue:
+   36            }
+   37          }
+   38:         this.$axios.$put(`${apiUrl}/screenshots/${this.screenshot_id}/crop`, data)
+   39            .then((res) => {
+   40              this.done = true
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  166        }
+  167        this.morePopover = false
+  168:       return this.$axios.$patch(`${apiUrl}/screenshots/${this.screenshot_id}`, data, config).then((res) => {
+  169          this.$store.state.uploadingScreenshot = false
+  170          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   79        }
+   80
+   81:       return this.$axios.$post(`${apiUrl}/pages/${this.pageSlug}/screenshot`, data, config)
+   82          .then((res) => {
+   83            console.log(res)
+
+/Users/tchret/code/pages/pages.xyz/pages/_page.vue:
+   17
+   18    mounted () {
+   19:     this.$axios.$get(`${apiUrl}/pages/${this.$nuxt.$route.params.page}`)
+   20        .then((res) => {
+   21          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+10 matches across 10 files
+
+
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Page/Cropper.vue:
+   36            }
+   37          }
+   38:         this.$axios.$put(`${apiUrl}/screenshots/${this.screenshot_id}/crop`, data)
+   39            .then((res) => {
+   40              this.done = true
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  166        }
+  167        this.morePopover = false
+  168:       return this.$axios.$patch(`${apiUrl}/screenshots/${this.screenshot_id}`, data, config).then((res) => {
+  169          this.$store.state.uploadingScreenshot = false
+  170          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   79        }
+   80
+   81:       return this.$axios.$post(`${apiUrl}/pages/${this.pageSlug}/screenshot`, data, config)
+   82          .then((res) => {
+   83            console.log(res)
+
+/Users/tchret/code/pages/pages.xyz/pages/_page.vue:
+   17
+   18    mounted () {
+   19:     this.$axios.$get(`${apiUrl}/pages/${this.$nuxt.$route.params.page}`)
+   20        .then((res) => {
+   21          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+10 matches across 10 files
+
+
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  166        }
+  167        this.morePopover = false
+  168:       return this.$axios.$patch(`${apiUrl}/screenshots/${this.screenshot_id}`, data, config).then((res) => {
+  169          this.$store.state.uploadingScreenshot = false
+  170          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   79        }
+   80
+   81:       return this.$axios.$post(`${apiUrl}/pages/${this.pageSlug}/screenshot`, data, config)
+   82          .then((res) => {
+   83            console.log(res)
+
+/Users/tchret/code/pages/pages.xyz/pages/_page.vue:
+   17
+   18    mounted () {
+   19:     this.$axios.$get(`${apiUrl}/pages/${this.$nuxt.$route.params.page}`)
+   20        .then((res) => {
+   21          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+9 matches across 9 files
+
+
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   79        }
+   80
+   81:       return this.$axios.$post(`${apiUrl}/pages/${this.pageSlug}/screenshot`, data, config)
+   82          .then((res) => {
+   83            console.log(res)
+
+/Users/tchret/code/pages/pages.xyz/pages/_page.vue:
+   17
+   18    mounted () {
+   19:     this.$axios.$get(`${apiUrl}/pages/${this.$nuxt.$route.params.page}`)
+   20        .then((res) => {
+   21          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+8 matches across 8 files
+
+
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/pages/_page.vue:
+   17
+   18    mounted () {
+   19:     this.$axios.$get(`${apiUrl}/pages/${this.$nuxt.$route.params.page}`)
+   20        .then((res) => {
+   21          this.$store.state.pageDetail = res
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+7 matches across 7 files
+
+
+Searching 114 files for "${apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+6 matches across 6 files
+
+
+Searching 114 files for "{ apiUrl }"
+
+/Users/tchret/code/pages/pages.xyz/components/CategorySwitcher/index.vue:
+   27    import Icon from '../Icon'
+   28    import Popover from './Popover'
+   29:   import { apiUrl } from '~/plugins/globale.js'
+   30    import { isEmpty } from 'lodash'
+   31    export default {
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/index.vue:
+   16  import Detail from '../Page/Detail'
+   17  import Spinner from '../Spinner'
+   18: import { apiUrl } from '~/plugins/globale'
+   19  import Cross from '../Icon/Cross'
+   20
+
+/Users/tchret/code/pages/pages.xyz/components/Page/Cropper.vue:
+   11  </template>
+   12  <script>
+   13:   import { apiUrl } from '~/plugins/globale'
+   14    import Spinner from '~/components/Spinner'
+   15
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  100  import Icon from '~/components/Icon'
+  101  import ClickOutside from 'vue-click-outside'
+  102: import { apiUrl } from '~/plugins/globale.js'
+  103
+  104  export default {
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   18  import Illustration from '~/components/Illustration'
+   19  import Btn from '~/components/Btn'
+   20: import { apiUrl } from '~/plugins/globale'
+   21
+   22  export default {
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+   88  import Icon from '~/components/Icon'
+   89  import Btn from '~/components/Btn'
+   90: import { apiUrl } from '~/plugins/globale.js'
+   91  import { isEmpty } from 'lodash'
+   92  import Input from '~/components/Form/Input'
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   37  import ViewWrapper from '~/components/ViewWrapper'
+   38  import Avatar from '~/components/Avatar'
+   39: import { apiUrl } from '~/plugins/globale'
+   40  import Container from '~/components/Container'
+   41  import VueMarkdown from 'vue-markdown'
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   38  import Btn from '~/components/Btn'
+   39
+   40: import { apiUrl } from '~/plugins/globale'
+   41
+   42  export default {
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+    1: import { apiUrl } from './globale.js'
+    2
+    3  export const currentUserData = {
+
+/Users/tchret/code/pages/pages.xyz/store/index.js:
+    1  import Vuex from 'vuex'
+    2  import Vue from 'vue'
+    3: import { apiUrl } from '../plugins/globale'
+    4  import { isEmpty, findIndex } from 'lodash'
+    5
+
+10 matches across 10 files
+
+
+Searching 114 files for "apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/index.vue:
+   16  import Detail from '../Page/Detail'
+   17  import Spinner from '../Spinner'
+   18: import { apiUrl } from '~/plugins/globale'
+   19  import Cross from '../Icon/Cross'
+   20
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Page/Cropper.vue:
+   11  </template>
+   12  <script>
+   13:   import { apiUrl } from '~/plugins/globale'
+   14    import Spinner from '~/components/Spinner'
+   15
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  100  import Icon from '~/components/Icon'
+  101  import ClickOutside from 'vue-click-outside'
+  102: import { apiUrl } from '~/plugins/globale.js'
+  103
+  104  export default {
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   18  import Illustration from '~/components/Illustration'
+   19  import Btn from '~/components/Btn'
+   20: import { apiUrl } from '~/plugins/globale'
+   21
+   22  export default {
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+   88  import Icon from '~/components/Icon'
+   89  import Btn from '~/components/Btn'
+   90: import { apiUrl } from '~/plugins/globale.js'
+   91  import { isEmpty } from 'lodash'
+   92  import Input from '~/components/Form/Input'
+   ..
+  125        this.loading = true
+  126
+  127:       this.$axios({method: 'POST', url: `${this.apiUrl}/pages/create`, data: this.data})
+  128          .then((response) => {
+  129            this.$router.push({ path: response.data.slug })
+  ...
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   37  import ViewWrapper from '~/components/ViewWrapper'
+   38  import Avatar from '~/components/Avatar'
+   39: import { apiUrl } from '~/plugins/globale'
+   40  import Container from '~/components/Container'
+   41  import VueMarkdown from 'vue-markdown'
+   ..
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   38  import Btn from '~/components/Btn'
+   39
+   40: import { apiUrl } from '~/plugins/globale'
+   41
+   42  export default {
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+   ..
+   60        this.loading = true
+   61
+   62:       this.$axios({method: 'PATCH', url: `${this.apiUrl}/users/${this.user.handle}`, data: {email: this.user.email}})
+   63          .then((response) => {
+   64            window.location = '/'
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+    1: import { apiUrl } from './globale.js'
+    2
+    3  export const currentUserData = {
+    .
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+/Users/tchret/code/pages/pages.xyz/plugins/globale.js:
+    1  import Vue from 'vue'
+    2
+    3: export const apiUrl = process.env.NODE_ENV === 'development' ? 'https://api.pages.xyz/v1' : 'https://api.pages.xyz/v1'
+    4
+    5  Vue.mixin({
+    6    data () {
+    7      return {
+    8:       apiUrl: apiUrl
+    9      }
+   10    }
+
+/Users/tchret/code/pages/pages.xyz/store/index.js:
+    1  import Vuex from 'vuex'
+    2  import Vue from 'vue'
+    3: import { apiUrl } from '../plugins/globale'
+    4  import { isEmpty, findIndex } from 'lodash'
+    5
+
+20 matches across 12 files
+
+
+Searching 114 files for "apiUrl"
+
+/Users/tchret/code/pages/pages.xyz/components/Modal/SignIn.vue:
+   13            Create your pages account in 2 minutes.
+   14          </div>
+   15:         <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">
+   16            <Icon :name="'Twitter'"></Icon> Login with twitter
+   17          </a>
+
+/Users/tchret/code/pages/pages.xyz/components/Navbar/index.vue:
+   53              </div>
+   54              <div v-else>
+   55:               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
+   56                <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
+   57              </div>
+
+/Users/tchret/code/pages/pages.xyz/components/Page/Cropper.vue:
+   11  </template>
+   12  <script>
+   13:   import { apiUrl } from '~/plugins/globale'
+   14    import Spinner from '~/components/Spinner'
+   15
+
+/Users/tchret/code/pages/pages.xyz/components/Page/index.vue:
+  100  import Icon from '~/components/Icon'
+  101  import ClickOutside from 'vue-click-outside'
+  102: import { apiUrl } from '~/plugins/globale.js'
+  103
+  104  export default {
+
+/Users/tchret/code/pages/pages.xyz/components/Uploader/Screenshot.vue:
+   18  import Illustration from '~/components/Illustration'
+   19  import Btn from '~/components/Btn'
+   20: import { apiUrl } from '~/plugins/globale'
+   21
+   22  export default {
+
+/Users/tchret/code/pages/pages.xyz/pages/new.vue:
+   88  import Icon from '~/components/Icon'
+   89  import Btn from '~/components/Btn'
+   90: import { apiUrl } from '~/plugins/globale.js'
+   91  import { isEmpty } from 'lodash'
+   92  import Input from '~/components/Form/Input'
+   ..
+  125        this.loading = true
+  126
+  127:       this.$axios({method: 'POST', url: `${this.apiUrl}/pages/create`, data: this.data})
+  128          .then((response) => {
+  129            this.$router.push({ path: response.data.slug })
+  ...
+  157    },
+  158    mounted () {
+  159:     this.$axios.$get(`${apiUrl}/categories`)
+  160        .then((res) => {
+  161          this.categories = res
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_username.vue:
+   37  import ViewWrapper from '~/components/ViewWrapper'
+   38  import Avatar from '~/components/Avatar'
+   39: import { apiUrl } from '~/plugins/globale'
+   40  import Container from '~/components/Container'
+   41  import VueMarkdown from 'vue-markdown'
+   ..
+   45    components: { ViewWrapper, Avatar, Container, VueMarkdown, Grid },
+   46    asyncData ({ app, params, error }) {
+   47:     return app.$axios.$get(`${apiUrl}/users/${params.username}`)
+   48        .then((res) => {
+   49          return {
+
+/Users/tchret/code/pages/pages.xyz/pages/@/_handle/edit.vue:
+   38  import Btn from '~/components/Btn'
+   39
+   40: import { apiUrl } from '~/plugins/globale'
+   41
+   42  export default {
+   43    components: { ViewWrapper, Container, Input, Headline, Tagline, Btn },
+   44    asyncData ({ app, params }) {
+   45:     return app.$axios.$get(`${apiUrl}/users/${params.handle}`)
+   46        .then((res) => {
+   47          return {
+   ..
+   60        this.loading = true
+   61
+   62:       this.$axios({method: 'PATCH', url: `${this.apiUrl}/users/${this.user.handle}`, data: {email: this.user.email}})
+   63          .then((response) => {
+   64            window.location = '/'
+
+/Users/tchret/code/pages/pages.xyz/plugins/currentUserData.js:
+    1: import { apiUrl } from './globale.js'
+    2
+    3  export const currentUserData = {
+    .
+   18      if (localStorage.getItem('token')) {
+   19        this.$store.state.token = localStorage.getItem('token')
+   20:       this.$axios.$get(`${apiUrl}/current_session`)
+   21          .then((res) => {
+   22            this.$store.state.couldBeLoggedIn = false
+
+/Users/tchret/code/pages/pages.xyz/plugins/globale.js:
+    1  import Vue from 'vue'
+    2
+    3: export const apiUrl = process.env.NODE_ENV === 'development' ? 'https://api.pages.xyz/v1' : 'https://api.pages.xyz/v1'
+    4
+    5  Vue.mixin({
+    6    data () {
+    7      return {
+    8:       apiUrl: apiUrl
+    9      }
+   10    }
+
+/Users/tchret/code/pages/pages.xyz/store/index.js:
+    1  import Vuex from 'vuex'
+    2  import Vue from 'vue'
+    3: import { apiUrl } from '../plugins/globale'
+    4  import { isEmpty, findIndex } from 'lodash'
+    5
+
+19 matches across 11 files

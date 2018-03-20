@@ -38,7 +38,7 @@ export default {
       this.popover = true
     },
     handleClickItem (item) {
-      this.$store.commit('setLayout', item)
+    // this.$store.commit('setLayout', item)
       this.popover = false
     }
   },

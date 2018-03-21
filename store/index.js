@@ -18,7 +18,7 @@ const createStore = () => {
       modal: null,
       modalSignIn: false,
       loading: true,
-      layoutMode: 'classic',
+      layoutMode: 'digger',
       couldBeLoggedIn: true,
       uploadingScreenshot: false,
       currentUser: {},

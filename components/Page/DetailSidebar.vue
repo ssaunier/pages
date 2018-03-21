@@ -14,12 +14,12 @@
       class='detail'
       :detail='true'
     ></Like>
-    <div class='message'>
+    <div class='author-mention'>
       <Avatar
-        :src='$store.state.currentUser.avatar_url'
+        :src='$store.state.pageDetail.user.avatar_url'
         class='small'
       />
-      <textarea placeholder="Be the first to comment" ></textarea>
+      {{$store.state.pageDetail.user.handle}} posted this
     </div>
   </div>
 </template>
@@ -40,6 +40,17 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+
+.author-mention {
+  padding: $spacing;
+  display: flex;
+  align-items: center;
+  color: rgba($black, .5);
+
+  .avatar {
+    margin-right: $spacing;
+  }
+}
 .infos {
   padding: $spacing * 2;
   border: 1px solid rgba($text_color, .15);

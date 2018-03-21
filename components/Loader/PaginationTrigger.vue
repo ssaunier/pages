@@ -24,8 +24,8 @@ export default {
 
 <style lang='scss' scoped>
   .component {
-    height: 600px;
-    margin-top: -300px;
+    position: absolute;
+    height: 300px;
     pointer-events: none;
     left: 0;
     right: 0;

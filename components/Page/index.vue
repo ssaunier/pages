@@ -191,7 +191,6 @@ export default {
 
   mounted () {
    // this.updateHeight()
-    setTimeout(() => {
     window.addEventListener('resize', this.handleResize)
 
     if (this.screenshot_url) {
@@ -203,7 +202,6 @@ export default {
     }
 
       this.updateHeight()
-    }, 1000)
   },
 
   data () {

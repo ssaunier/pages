@@ -4,18 +4,17 @@
       class='pagination-helper'
       v-if='this.$store.state.pagination.next_page'
     ></PostLoader>
-    <masonry
-      ref='grid'
-      :cols="{default: 3, 1200: 2, 700: 1}"
-      :style="{position: 'relative'}"
-      :gutter="{default: 32, 700: '16px'}"
+    <div
       v-if="$store.state.layoutMode === 'digger'"
+      class='grid'
     >
 
-      <div v-for="(item, index) in posts" class='post-container'>
-        <Page v-bind='item' v-bind:isItem='true'></Page>
+      <div v-for='column in postsInGrid()' class='column'>
+        <div v-for='post in column' class='post-container'>
+          <Page v-bind='post' v-bind:isItem='true'></Page>
+        </div>
       </div>
-    </masonry>
+    </div>
     <div v-else>
       <div v-for="(item, index) in posts" class='post-container classic'>
         <Page v-bind='item' v-bind:isItem='true'></Page>
@@ -48,6 +47,31 @@ export default {
   mounted () {
     this.$store.commit('setLoading', false)
   },
+  methods: {
+    postsInGrid () {
+      let posts = this.posts
+      let newPosts = [[], [], []]
+      let counter = 0
+
+      for (let i = 0; i < posts.length; i++) {
+        newPosts[counter].push(posts[i])
+        counter += 1
+        let columnNumber
+        if(window.innerWidth > 1200) {
+          columnNumber = 3
+        } else if (window.innerWidth > 750) {
+          columnNumber = 2
+        } else {
+          columnNumber = 1
+        }
+
+        if (counter === columnNumber) {
+          counter = 0
+        }
+      }
+      return newPosts
+    }
+  },
   computed: mapState({
     posts: state => state.posts
   })
@@ -77,6 +101,30 @@ export default {
         0 19px 38px rgba($text_color,0.30),
         0 15px 12px rgba($text_color,0.22);
     }
+  }
+}
+
+.grid {
+  display: flex;
+  margin-left: -32px
+}
+
+.column {
+  flex: 0 0 33.33333%;
+  width: 33.33333%;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border-width: 0px 0px 0px 32px;
+  border-style: solid;
+  border-color: transparent;
+  border-image: initial;
+
+  @media(max-width: 1200px) {
+    flex: 0 0 50%;
+  }
+
+  @media(max-width: 750px) {
+    flex: 0 0 100%;
   }
 }
 </style>

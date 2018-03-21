@@ -1,7 +1,7 @@
 <template>
-  <a @click='handleClick' :class='{liked: post.liked, detail}'>
+  <a @click='handleClick' :class='{liked: post.liked || betaLiked, detail}'>
     <span v-if='detail' class='content'>
-      <Icon :name="'Heart'"/> <span>{{ post.liked ? 'In favorites' : 'Add to favorites'}}</span> <i class='counter'></i>
+      <Icon :name="'Heart'"/> <span>{{ post.liked || betaLiked ? 'In favorites' : 'Add to favorites'}}</span> <i class='counter'></i>
     </span>
     <span v-else>
       <Icon :name="'Heart'"/>
@@ -19,11 +19,19 @@ export default {
   methods: {
     handleClick () {
       this.$store.dispatch('upvote', this.post)
+      if(this.post.liked) {
+        this.betaLiked = false
+      } else {
+        this.betaLiked = true
+      }
     }
   },
   mounted () {
-    if (!isEmpty(this.$store.state.currentUser)) {
-      this.$store.dispatch('upvoted', this.post.slug)
+    this.$store.dispatch('upvoted', this.post.slug)
+  },
+  data () {
+    return {
+      betaLiked: this.post.liked
     }
   }
 }

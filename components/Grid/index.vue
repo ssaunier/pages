@@ -121,10 +121,16 @@ export default {
 
   @media(max-width: 1100px) {
     flex: 0 0 50%;
+    &:nth-child(3) {
+      display: none
+    }
   }
 
   @media(max-width: 750px) {
     flex: 0 0 100%;
+    &:nth-child(2) {
+      display: none
+    }
   }
 }
 </style>

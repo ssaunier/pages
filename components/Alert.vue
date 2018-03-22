@@ -51,7 +51,7 @@ export default {
         this.ctaUrl = 'https://www.producthunt.com/posts/pages'
 
         this.image = "/ph.png"
-      } else if (!localStorage.getItem('twitter')) {
+      } else if (!localStorage.getItem('alert-twitter')) {
         this.hidden = false
         this.title = 'Spread the world'
         this.description = "Feel free to share the concept <br/> So other can discover it"
@@ -132,7 +132,7 @@ export default {
   .alert-description {
     color: #c5edff;
     margin: $spacing / 2 0;
-    font-size: 13px;
+    font-size: 12px;
     margin-left: 0; margin-right: 0;
   }
 

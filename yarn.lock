@@ -6406,7 +6406,7 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-analytics@^5.4.0:
+vue-analytics@^5.4.0, vue-analytics@^5.9.1:
   version "5.9.1"
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.9.1.tgz#3ac9810f56dbe54bca4fd1c3ee42354b433d932b"
 

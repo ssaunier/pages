@@ -361,11 +361,11 @@ export default {
 
     .search-bar, .header-button {
       border-radius: $radius;
-      box-shadow: 0px 1px 2px rgba($text_color, .1), 0px 0.25px 0px 0.5px rgba($text_color, .20);
+      box-shadow: 0px 1px 2px rgba($text_color, .1), 0px 0.25px 0px 01px #E0E3E7;
       background: linear-gradient(rgba(white, 1), rgba(white, .1));
       cursor: pointer;
       &:hover {
-        box-shadow: 0px 1px 2px rgba($text_color, .15), 0px 0px 0px 0.5px rgba($text_color, .3);
+        box-shadow:  0px 1px 2px rgba($text_color, .15), 0px 0px 0px 1px rgba($text_color, .3);
         background: linear-gradient(rgba(white, 1), rgba(white, .1));
       }
     }

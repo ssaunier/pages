@@ -1,6 +1,6 @@
 <template>
 <div class="alert-container">
-  <div class='alert'>
+  <div :class="{'alert': true, active: !hidden}">
     <img class='image' src='/tchret.jpg' />
     <div class='alert-content'>
       <div class='alert-title'>
@@ -11,13 +11,35 @@
         Looking for new opportunities
       </div>
       <div class='alert-actions'>
-        <a class='cta' href='https://tchret.com' target='_blank'>About me</a>
-        <a class='dismiss'>Dismiss</a>
+        <a class='cta' href='https://www.tchret.com' target='_blank'>About me</a>
+        <a class='dismiss' @click='handleDismiss'>Dismiss</a>
       </div>
     </div>
   </div>
 </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    if(!localStorage.getItem('alert-tchret')) {
+      this.hidden = false
+    }
+  },
+  data () {
+    return {
+      hidden: true
+    }
+  },
+
+  methods: {
+    handleDismiss () {
+      this.hidden = true
+      window.localStorage.setItem('alert-tchret', true)
+    }
+  }
+}
+</script>
 
 <style lang='scss' scoped>
 @keyframes enter {
@@ -54,9 +76,12 @@
 
     opacity: 0;
     transform: translateY(-20px);
-
-    animation: enter .3s ease forwards;
     animation-delay: 2s !important;
+
+    &.active {
+      animation: enter .3s ease forwards;
+    }
+
   }
 
   .alert-content {

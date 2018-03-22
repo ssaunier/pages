@@ -181,6 +181,7 @@ export default {
   font-size: 1em;
   padding-left: $spacing * 3.3;
   padding-right: 5px;
+  -webkit-appearance: none;
 
   height: 28px;
   padding-bottom: 2px;

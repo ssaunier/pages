@@ -112,8 +112,10 @@ export default {
     opacity: 0;
     transform: translateY(-20px);
     animation-delay: 2s !important;
+    pointer-events: none;
 
     &.active {
+      pointer-events: auto;
       animation: enter .3s ease forwards;
     }
 

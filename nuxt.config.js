@@ -12,7 +12,11 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'The best web pages around' },
       { name: 'twitter:image', content: '/meta.jpeg' },
-      { name: 'og:image', content: '/meta.jpeg' }
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'og:image', content: '/meta.jpeg' },
+      { name: 'twitter:site', content: '@tchret' },
+      { name: "og:title", content: "Hall of Fame — Pages"},
+      { name: 'og:description', content: 'The best web pages around.'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }

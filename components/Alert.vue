@@ -132,6 +132,7 @@ export default {
   .alert-description {
     color: #c5edff;
     margin: $spacing / 2 0;
+    font-size: 13px;
     margin-left: 0; margin-right: 0;
   }
 

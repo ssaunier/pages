@@ -57,7 +57,7 @@ export default {
         newPosts[counter].push(posts[i])
         counter += 1
         let columnNumber
-        if(window.innerWidth > 1200) {
+        if(window.innerWidth > 1100) {
           columnNumber = 3
         } else if (window.innerWidth > 750) {
           columnNumber = 2
@@ -119,7 +119,7 @@ export default {
   border-color: transparent;
   border-image: initial;
 
-  @media(max-width: 1200px) {
+  @media(max-width: 1100px) {
     flex: 0 0 50%;
   }
 

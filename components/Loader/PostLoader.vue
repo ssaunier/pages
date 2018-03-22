@@ -30,7 +30,7 @@
       &:last-child { margin-right: 0 }
 
       &:first-child {
-        @media (max-width: 1200px) {
+        @media (max-width: 1100px) {
           display: none;
         }
       }

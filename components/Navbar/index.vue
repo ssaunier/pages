@@ -52,7 +52,7 @@
               </div>
             </div>
             <div v-else>
-              <nuxt-link class='link' to='about'>About</nuxt-link>
+              <nuxt-link class='link' to='/about'>About</nuxt-link>
               <a class='link' :href="`${apiUrl.replace('/v1', '')}/auth/twitter`">Sign in</a>
               <span @click='this.launchModalSignIn'><btn class='cta'>Submit a page</btn></span>
             </div>

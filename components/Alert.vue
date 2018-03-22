@@ -51,6 +51,14 @@ export default {
         this.ctaUrl = 'https://www.producthunt.com/posts/pages'
 
         this.image = "/ph.png"
+      } else if (!localStorage.getItem('twitter')) {
+        this.hidden = false
+        this.title = 'Spread the world'
+        this.description = "Feel free to share the concept <br/> So other can discover it"
+        this.ctaUrl = "https://twitter.com/intent/retweet?tweet_id=976732669852770304"
+        this.ctaValue = "Share on twitter"
+        this.currentAlert = 'twitter'
+        this.image = "/twitter.png"
       }
       else if (!localStorage.getItem('alert-tchret')) {
         this.hidden = false

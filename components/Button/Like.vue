@@ -27,7 +27,14 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('upvoted', this.post.slug)
+    let interval = setInterval(() => {
+       if (!this.$store.getters.couldBeLoggedIn) {
+        if (this.$store.getters.userSignedIn) {
+          this.$store.dispatch('upvoted', this.post.slug)
+          clearInterval(interval)
+        }
+      }
+    }, 200)
   },
   data () {
     return {

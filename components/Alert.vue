@@ -1,17 +1,15 @@
 <template>
 <div class="alert-container">
   <div :class="{'alert': true, active: !hidden}">
-    <img class='image' src='/tchret.jpg' />
+    <img class='image' :src='image' />
     <div class='alert-content'>
       <div class='alert-title'>
-        Available for (remote) work
+        {{title}}
       </div>
-      <div class='alert-description'>
-        Maker of pages.xyz, coding designer. <br>
-        Looking for new opportunities
+      <div class='alert-description' v-html='description'>
       </div>
       <div class='alert-actions'>
-        <a class='cta' href='https://www.tchret.com' target='_blank'>About me</a>
+        <a class='cta' :href='ctaUrl' target='_blank'>{{ctaValue}}</a>
         <a class='dismiss' @click='handleDismiss'>Dismiss</a>
       </div>
     </div>
@@ -22,20 +20,47 @@
 <script>
 export default {
   mounted() {
-    if(!localStorage.getItem('alert-tchret')) {
-      this.hidden = false
-    }
+    this.nextAlert()
   },
   data () {
     return {
-      hidden: true
+      hidden: true,
+      title: 'Available for (remote) work',
+      description: "Maker of pages.xyz, coding designer. <br> Looking for new opportunities",
+      ctaUrl: "https://www.tchret.com",
+      ctaValue: "About me",
+      currentAlert: "tchret",
+      image: "/tchret.jpg"
+
     }
   },
 
   methods: {
     handleDismiss () {
       this.hidden = true
-      window.localStorage.setItem('alert-tchret', true)
+      window.localStorage.setItem(`alert-${this.currentAlert}`, true)
+      this.nextAlert()
+    },
+    nextAlert () {
+      if (!localStorage.getItem('alert-ph')) {
+        this.hidden = false
+        this.currentAlert = 'ph'
+        this.title = 'Pages is on Product Hunt'
+        this.description = "We are launching on PH!<br> 🐱Meow"
+        this.ctaValue = "Join the discussion"
+        this.ctaUrl = 'https://www.producthunt.com/posts/pages'
+
+        this.image = "/ph.png"
+      }
+      else if (!localStorage.getItem('alert-tchret')) {
+        this.hidden = false
+        this.title = 'Available for (remote) work',
+        this.description = "Maker of pages.xyz. <br> Looking for new opportunities",
+        this.ctaUrl = "https://www.tchret.com",
+        this.ctaValue = "About me",
+        this.currentAlert = "tchret"
+        this.image = "/tchret.jpg"
+      }
     }
   }
 }
@@ -62,7 +87,6 @@ export default {
   }
 
   .alert {
-    max-width: 400px;
     background: $black;
     display: inline-block;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -73,6 +97,9 @@ export default {
     padding: 8px;
     font-size: 13px;
     pointer-events: auto;
+
+    max-width: 300px;
+    width: 100%;
 
     opacity: 0;
     transform: translateY(-20px);

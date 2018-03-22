@@ -20,7 +20,10 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    ['nuxt-sass-resources-loader', resolve(__dirname, 'assets/variables.scss')]
+    ['nuxt-sass-resources-loader', resolve(__dirname, 'assets/variables.scss')],
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-73728274-6'
+    }]
   ],
 
   axios: {

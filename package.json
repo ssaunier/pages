@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "@nuxtjs/dotenv": "^1.1.0",
+    "@nuxtjs/google-analytics": "^2.0.2",
     "lodash": "^4.17.5",
     "masonry-layout": "^4.2.1",
     "nuxt": "^1.4.0",

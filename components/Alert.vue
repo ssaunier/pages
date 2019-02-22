@@ -46,28 +46,11 @@ export default {
         this.hidden = false
         this.currentAlert = 'ph'
         this.title = 'Pages is on Product Hunt'
-        this.description = "We are launching on PH!<br> 🐱Meow"
+        this.description = "Check us out on PH<br> 🐱Meow"
         this.ctaValue = "Join the discussion"
         this.ctaUrl = 'https://www.producthunt.com/posts/pages'
 
         this.image = "/ph.png"
-      } else if (!localStorage.getItem('alert-twitter')) {
-        this.hidden = false
-        this.title = 'Spread the world'
-        this.description = "Feel free to share the concept <br/> So other can discover it"
-        this.ctaUrl = "https://twitter.com/intent/retweet?tweet_id=976732669852770304"
-        this.ctaValue = "Share on twitter"
-        this.currentAlert = 'twitter'
-        this.image = "/twitter.png"
-      }
-      else if (!localStorage.getItem('alert-tchret')) {
-        this.hidden = false
-        this.title = 'Available for (remote) work',
-        this.description = "Maker of pages.xyz. <br> Looking for new opportunities",
-        this.ctaUrl = "https://www.tchret.com",
-        this.ctaValue = "About me",
-        this.currentAlert = "tchret"
-        this.image = "/tchret.jpg"
       }
     }
   }

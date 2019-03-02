@@ -33,7 +33,7 @@ module.exports = {
   ],
 
   axios: {
-    baseURL: process.env.BASE_URL || 'https://pagesxyzapi.herokuapp.com/v1'
+    baseURL: 'https://pagesxyzapi.herokuapp.com/v1'
   },
 
   loading: false,

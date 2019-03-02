@@ -24,7 +24,9 @@ module.exports = {
   },
 
   modules: [
-    '@nuxtjs/axios',
+    ['@nuxtjs/axios', {
+      baseURL: 'https://pagesxyzapi.herokuapp.com/v1'
+    }],
     '@nuxtjs/dotenv',
     ['nuxt-sass-resources-loader', resolve(__dirname, 'assets/variables.scss')],
     ['@nuxtjs/google-analytics', {
@@ -33,7 +35,7 @@ module.exports = {
   ],
 
   axios: {
-    baseURL: process.env.BASE_URL || 'https://pagesxyzapi.herokuapp.com/v1'
+    baseURL: 'https://pagesxyzapi.herokuapp.com/v1'
   },
 
   loading: false,

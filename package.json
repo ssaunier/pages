@@ -23,7 +23,7 @@
     "vue-instantsearch": "^1.5.2",
     "vue-is-in-view": "^1.0.7",
     "vue-markdown": "^2.2.4",
-    "vue-tweet-embed": "^2.1.1"
+    "vue-tweet-embed": "^2.2.1"
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",

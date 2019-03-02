@@ -109,11 +109,11 @@ const createStore = () => {
     },
     actions: {
       async deletePage ({commit, state}, slug) {
-        await this.$axios.$delete(`pages/${slug}`)
+        await this.$axios.$delete(`https://pagesxyzapi.herokuapp.com/v1/pages/${slug}`)
         commit('removePost', slug)
       },
       async updatePage ({commit, state}, page) {
-        const response = await this.$axios.$patch(`pages/${page.slug}`, { page: page.data })
+        const response = await this.$axios.$patch(`https://pagesxyzapi.herokuapp.com/v1/pages/${page.slug}`, { page: page.data })
         commit('updatePost', response)
       },
       async getPosts ({commit, state}, pagination) {
@@ -164,7 +164,7 @@ const createStore = () => {
 
         commit('setPaginationLoading', true)
 
-        const response = await this.$axios.$get(state.pagination.url, {
+        const response = await this.$axios.$get(state.pagination.url.replace('https://api.pages.xyz/v1/', ''), {
           params: {
             page: state.pagination.next_page
           }
@@ -179,7 +179,7 @@ const createStore = () => {
         commit('setLoading', true)
         commit('setCurrentCategory', {id: 'profile', name: username})
 
-        const response = await this.$axios.$get(`users/${username}/pages`, {
+        const response = await this.$axios.$get(`https://pagesxyzapi.herokuapp.com/v1/users/${username}/pages`, {
           params: { page: page }
         })
         commit('addPosts', response.pages)
@@ -188,14 +188,14 @@ const createStore = () => {
       },
       async upvote ({ commit, state }, page) {
         if (!isEmpty(state.currentUser)) {
-          let data = await this.$axios.$post(`pages/${page.slug}/upvote`)
+          let data = await this.$axios.$post(`https://pagesxyzapi.herokuapp.com/v1/pages/${page.slug}/upvote`)
           commit('updatePost', data)
         } else {
           state.modalSignIn = true
         }
       },
       async upvoted ({ commit, state }, slug) {
-        let data = await this.$axios.$get(`pages/${slug}/upvoted`)
+        let data = await this.$axios.$get(`https://pagesxyzapi.herokuapp.com/v1/pages/${slug}/upvoted`)
         commit('updatePost', data)
       },
       async nuxtServerInit ({commit, dispatch}, {store, isClient, isServer, route, params, app}) {
@@ -203,14 +203,14 @@ const createStore = () => {
           const token = route.query.token
           commit('setAccessToken', token)
 
-          const currentUser = await app.$axios.$get(`current_session`)
+          const currentUser = await app.$axios.$get(`https://pagesxyzapi.herokuapp.com/v1/current_session`)
           commit('setCurrentUserData', currentUser)
         }
 
         if (isServer) {
           let response
           if (route.path === '/') {
-            response = await this.$axios.$get(`pages/featured`, {
+            response = await this.$axios.$get(`https://pagesxyzapi.herokuapp.com/v1/pages/featured`, {
               params: {
                 page: 1
               }
@@ -219,7 +219,7 @@ const createStore = () => {
             commit('setPagination', response.pagination)
           } else if (route.params.slug) {
             try {
-              response = await app.$axios.$get(`category/${route.params.slug}`, {
+              response = await app.$axios.$get(`https://pagesxyzapi.herokuapp.com/v1/category/${route.params.slug}`, {
                 params: {
                   page: 1
                 }

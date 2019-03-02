@@ -23,6 +23,10 @@ module.exports = {
     ]
   },
 
+  env: {
+     baseUrl: 'https://pagesxyzapi.herokuapp.com/v1'
+   },
+
   modules: [
     ['@nuxtjs/axios', {
       baseURL: 'https://pagesxyzapi.herokuapp.com/v1'

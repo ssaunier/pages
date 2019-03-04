@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{'page': true, 'has-screenshot': screenshot_url || this.isItem}"
+    :class="{'page': true, 'has-screenshot': screenshot_url || this.isItem, sss: this.cool_url == 'lewagon.com'}"
     ref='page'
     @click='this.handleClick'
 
@@ -120,7 +120,9 @@ export default {
     },
 
     handleClick (e) {
-      if (this.isItem) {
+      if(this.cool_url == 'lewagon.com') {
+        window.open("http://lewagon.com", '_blank')
+      } else if (this.isItem) {
         this.$store.commit('openModal', {slug: this.slug, title: this.title})
       } else {
         this.morePopover = false
@@ -222,6 +224,10 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+
+.page.sss, .page.sss .body {
+  cursor: pointer;
+}
   [type='file'] {
     display: none
   }

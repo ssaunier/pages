@@ -121,7 +121,7 @@ export default {
 
     handleClick (e) {
       if(this.cool_url == 'lewagon.com') {
-        window.open("http://lewagon.com", '_blank')
+        window.open("http://lewagon.com/?ref=pages.xyz", '_blank')
       } else if (this.isItem) {
         this.$store.commit('openModal', {slug: this.slug, title: this.title})
       } else {

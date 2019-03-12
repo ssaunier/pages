@@ -1,7 +1,7 @@
 <template>
   <div
     :class='{popover: true, active: true}'
-    v-click-outside='this.$parent.hidePopover'
+    v-on-clickaway='this.$parent.hidePopover'
     @mouseleave='resetPopoverHighlightY'
     >
     <div class='popover-inner'>
@@ -50,9 +50,12 @@
 import Item from './Item'
 import ClickOutside from 'vue-click-outside'
 import { isEmpty } from 'lodash'
+import { mixin as clickaway } from 'vue-clickaway';
 
 export default {
   components: { Item },
+  mixins: [ clickaway ],
+
   props: ['active', 'categories', 'hidePopover'],
   mounted () {
     this.resetPopoverHighlightY()
@@ -101,6 +104,8 @@ export default {
         this.popoverHighlightY = (activeIndex + 1) * 100
       }
     }
+  },
+  mounted() {
   },
   data () {
     return {
